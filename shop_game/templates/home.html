@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+{% load static %}
+{% block content %}
+  <div class="slideshow-container">
+    <div class="slider">
+      <div class="slides">
+        <!--radio buttons start-->
+        <input type="radio" name="radio-btn" id="radio1">
+        <input type="radio" name="radio-btn" id="radio2">
+        <input type="radio" name="radio-btn" id="radio3">
+        <input type="radio" name="radio-btn" id="radio4">
+        <!--radio buttons end-->
+        <!--slide images start-->
+        <div class="slide first">
+          <img src="{% static 'svg/fps.jpg' %}" style="width:100%" alt="">
+        </div>
+        <div class="slide">
+          <img src="{% static 'svg/adventure.jpg' %}" style="width:100%" alt="">
+        </div>
+        <div class="slide">
+          <img src="{% static 'svg/strategy.jpg' %}" style="width:100%" alt="">
+        </div>
+        <div class="slide">
+          <img src="{% static 'svg/indi.jpg' %}" style="width:100%" alt="">
+        </div>
+        <!--slide images end-->
+        <!--automatic navigation start-->
+        <div class="navigation-auto">
+          <div class="auto-btn1"></div>
+          <div class="auto-btn2"></div>
+          <div class="auto-btn3"></div>
+          <div class="auto-btn4"></div>
+        </div>
+        <!--automatic navigation end-->
+      </div>
+  </div>
+  <div class="nav-bar-main">
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
+      <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="navbarsExample03">
+          <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+            <li class="nav-item nav-center">
+              <a href="#" class="nav-link nav-main-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Каталог игр</a>
+
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+                <a class="dropdown-item pos" href="#">Change password</a>
+              <div class="dropdown-divider"></div>
+                <a class="dropdown-item pos" href="#">Log out</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+<div>
+    <ul class="products clearfix list-games">
+      {% for product in object_list %}
+      <li class="product-wrapper">
+        <div href="#" class="product">
+          <div class="product-photo">
+            <img src="{{product.cover}} " alt="{{ product.title }}">
+          </div>
+          <div class="inform-product pullUp">
+            <p class="title_product" style="color:white;">{{product.title}}</p>
+            <p class="price" style="color:white;">{{product.price}}Р</p>
+            <a href="#" class="button-buy btn" style="color:white;" role="button">Купить</a>
+            <a href="#" class="button-detail btn" style="color:white;" role="button">О товаре</a>
+          </div>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+</div>
+
+
+{% endblock %}
