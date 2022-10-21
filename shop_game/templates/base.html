@@ -26,8 +26,9 @@
             <img src="{% static 'svg/-shopping-cart_90604.png' %}" alt="" height="40px" class="shop_cart">
           </a>
           <div class="text-end auth">
-            <button type="button" class="btn btn-outline-light me-2">Login</button>
-            <button type="button" class="btn btn-warning">Sign-up</button>
+            <a href="{% url 'login' %}" class="btn btn-outline-light me-2">Log in</a>
+            <a href="{% url 'signup' %}" class="btn btn-warning">Sign up</a>
+
           </div>
         </div>
     </div>
