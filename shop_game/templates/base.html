@@ -27,9 +27,25 @@
             <img src="{% static 'svg/-shopping-cart_90604.png' %}" alt="" height="40px" class="shop_cart">
           </a>
           <div class="text-end auth">
+            {% if user.is_authenticated %}
+                                <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link dropdown-toggle" href="#" id="userMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                {{ user.username }}
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
+                                <a class="dropdown-item" href="{% url 'personal_area'%}">Личный кабинет</a>
+                            <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
+                              <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'logout' %}">Log out</a>
+                            </div>
+                        </li>
+                    </ul>
+            {% else %}
             <a href="{% url 'login' %}" class="btn btn-outline-light me-2">Log in</a>
             <a href="{% url 'signup' %}" class="btn btn-warning">Sign up</a>
-
+            {% endif %}
           </div>
         </div>
     </div>
