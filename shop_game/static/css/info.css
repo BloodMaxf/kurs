@@ -1,0 +1,114 @@
+
+  .info_product {
+    height:1000px;
+    background-size:cover;
+    position:relative;
+  }
+  
+  .info_product .info {
+    max-width:1500px;
+    width:90%;
+    height: 800px;
+    background-color:#212529;
+    padding:40px;
+    border-radius:4px;
+    transform:translate(-50%, -50%);
+    position:absolute;
+    top:50%;
+    left:50%;
+    color:#fff;
+    box-shadow:3px 3px 4px rgba(0,0,0,0.2);
+  }
+  
+  .info_product .illustration {
+    position: relative;
+    text-align:center;
+    right: 36%;
+    padding:15px 0 20px;
+    font-size:50px;
+    color:#ffff ;
+  }
+  
+  .info_product .info .info-control {
+    position: absolute;
+    display: block;
+    left: 40%;
+    width: 670px;
+    margin-top: -520px;
+    background:none;
+    border:none;
+    border-bottom:1px solid #434a52;
+    border-radius:0;
+    box-shadow:none;
+    outline:none;
+    color:inherit;
+    word-break: break-all ;
+  }
+
+  .info_product .info .name-control {
+    position: absolute;
+    left: 40%;
+    width: 660px;
+    font-size: 40px;
+    margin-top: -632px;
+    background:none;
+    border:none;
+    border-bottom:1px solid #434a52;
+    border-radius:0;
+    box-shadow:none;
+    outline:none;
+    color:inherit;
+  }
+  
+  .info_product .info .janr-control {
+    position: absolute;
+    left: 39.6%;
+    width: 660px;
+    text-align: center;
+    font-size: 25px;
+    margin-top: -570px;
+    background:none;
+    border:none;
+    
+    outline:none;
+    color:inherit;
+  }
+  .info_product .info .price-control {
+    position: absolute;
+    text-align: center;
+    font-size: 25px;
+    left: 11.5%;
+    margin-top: -15px;
+    background:none;
+    border:none;
+    border-bottom:1px solid #434a52;
+    border-radius:0;
+    outline:none;
+    color:inherit;
+  }
+
+  .info_product .info .btn-primary {
+    position: relative;
+    left: 6%;
+    background:black;
+    width: 220px;
+    border:none;
+    border-radius:4px;
+    padding:11px;
+    box-shadow:none;
+    margin-top:20px;
+    text-shadow:none;
+    outline:none;
+  }
+  
+  .info_product .info .btn-primary:hover, .info_product .info .btn-primary:active {
+    background:#214a80;
+    outline:none;
+  }
+  
+  
+  .info_product .info .btn-primary:active {
+    transform:translateY(1px);
+  }
+
+  

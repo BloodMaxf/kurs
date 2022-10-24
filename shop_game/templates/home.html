@@ -68,7 +68,7 @@
           <div class="inform-product pullUp">
             <p class="price" style="color:white;">{{product.price}}Р</p>
             <a href="#" class="button-buy btn" style="color:white;" role="button">Купить</a>
-            <a href="#" class="button-detail btn" style="color:white;" role="button">О товаре</a>
+            <a href="{% url 'product_detail' product.pk %}" class="button-detail btn" style="color:white;" role="button">О товаре</a>
           </div>
         </div>
       </li>

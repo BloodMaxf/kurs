@@ -10,3 +10,7 @@ from . import models
 class HomePageView(ListView):
     model = models.Product
     template_name = 'home.html'
+
+class ProductDetailView(DetailView):
+    model = models.Product
+    template_name = 'product_detail.html'
