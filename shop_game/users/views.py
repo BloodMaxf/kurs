@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import DetailView
+from django.views.generic import ListView
 from django.views.generic.edit import CreateView
 from .forms import CustomUserCreationForm
 from .models import Personal_area
@@ -11,7 +11,7 @@ class Signup(CreateView):
     template_name = 'signup.html'
 
 
-class Personal(DetailView):
+class Personal(ListView):
     model = Personal_area
     template_name = 'personal_area.html'
 

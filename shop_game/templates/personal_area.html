@@ -9,18 +9,14 @@
     <div class="personal_info">
         <div class="form-group"> <div class="name-control">ЛИЧНЫЙ КАБИНЕТ</div></div>
         <div class="form-group">
-          <ul class="info-control-2" >
-            <li class="info-item">
-              <div>
-                  {{ object.title }} <i style="margin-left: 400px;">Ключ: {{ object.key }} </i>
-              </div>
-            </li>
-            <li class="info-item">
-              <div>
-                  Terraria <i style="margin-left: 400px;">Ключ: </i>
-              </div>
-            </li>
-
+          <ul class="info-control-2">
+              {% for personal_area in object_list %}
+                    <li class="info-item">
+                      <div>
+                          {{ personal_area.title }} <i style="margin-left: 400px;">Ключ: {{ personal_area.key }} </i>
+                      </div>
+                    </li>
+              {% endfor %}
           </ul>
         </div>
     </div>
