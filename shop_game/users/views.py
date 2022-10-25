@@ -1,15 +1,18 @@
-
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
-from django.views import generic
-from .forms import CustomUserCreationForm, UserPersonalArea
+from django.views.generic import DetailView
+from django.views.generic.edit import CreateView
+from .forms import CustomUserCreationForm
+from .models import Personal_area
 
-class Signup(generic.CreateView):
+class Signup(CreateView):
     form_class = CustomUserCreationForm
     success_url = reverse_lazy('login')
     template_name = 'signup.html'
 
 
-class Personal(generic.CreateView):
-    form_class = UserPersonalArea
+class Personal(DetailView):
+    model = Personal_area
     template_name = 'personal_area.html'
+
+

@@ -8,8 +8,3 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm):
         model = User
         fields = ('username', 'email')
-
-class UserPersonalArea(forms.ModelForm):
-    class Meta:
-        model = Personal_area
-        fields = ('title', 'key')

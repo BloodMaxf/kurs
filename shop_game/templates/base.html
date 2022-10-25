@@ -9,7 +9,8 @@
             integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
     <link rel="stylesheet" href="{% static 'css/slider.css' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-  <link rel="stylesheet" href="{% static 'css/info.css' %}">
+    <link rel="stylesheet" href="{% static 'css/info.css' %}">
+    <link rel="stylesheet" href="{% static 'css/personal_acc.css' %}">
     <title>Kojima Shop</title>
 </head>
 <body class="one">
@@ -23,9 +24,6 @@
           <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search" role="search">
             <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
           </form>
-          <a href="#">
-            <img src="{% static 'svg/-shopping-cart_90604.png' %}" alt="" height="40px" class="shop_cart">
-          </a>
           <div class="text-end auth">
             {% if user.is_authenticated %}
                                 <ul class="navbar-nav ml-auto">
@@ -34,7 +32,7 @@
                                 {{ user.username }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userMenu">
-                                <a class="dropdown-item" href="{% url 'personal_area'%}">Личный кабинет</a>
+                                <a class="dropdown-item" href="{% url 'personal_area' user.pk %}">Личный кабинет</a>
                             <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
                               <div class="dropdown-divider"></div>
