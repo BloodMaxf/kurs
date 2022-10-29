@@ -21,8 +21,8 @@
             <img src="{% static 'svg/_Kojima Shop.svg' %}" class="bi" width="80" height="80" alt="">
           </a>
 
-          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search" role="search">
-            <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+          <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 search" role="search" action="{% url 'search_results' %}" method="get">
+            <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search" name="q">
           </form>
           <div class="text-end auth">
             {% if user.is_authenticated %}
