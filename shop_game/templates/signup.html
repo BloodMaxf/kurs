@@ -8,10 +8,13 @@
     <form method="post">
         {% csrf_token %}
         <div class="illustration">Регистрация</div>
-        <div class="form-group"><input class="form-control" placeholder="Логин" type="text" name="username" maxlength="150" autofocus required id="id_username"></div>
-        <div class="form-group"><input class="form-control" type="email" name="email" maxlength="254" id="id_email" placeholder="Введите почту"></div>
-        <div class="form-group"><input class="form-control" type="password" name="password1" autocomplete="new-password"  required id="id_password1" placeholder="Введите пароль"> </div>
-        <div class="form-group"><input class="form-control" type="password" name="password2" autocomplete="new-password" required id="id_password2" placeholder="Введите новый пароль"> </div>
-        <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Зарегистрироваться</button></div></form>
+
+        {{ form|crispy }}
+<!--        <div class="form-group"><input class="form-control" placeholder="Логин" type="text" name="username" maxlength="150" autofocus required id="id_username"></div>-->
+<!--        <div class="form-group"><input class="form-control" type="email" name="email" maxlength="254" id="id_email" placeholder="Введите почту"></div>-->
+<!--        <div class="form-group"><input class="form-control" type="password" name="password1" autocomplete="new-password"  required id="id_password1" placeholder="Введите пароль"> </div>-->
+<!--        <div class="form-group"><input class="form-control" type="password" name="password2" autocomplete="new-password" required id="id_password2" placeholder="Повторите пароль"> </div>-->
+        <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Зарегистрироваться</button></div>
+    </form>
   </div>
 {% endblock %}

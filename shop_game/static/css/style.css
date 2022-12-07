@@ -4,47 +4,31 @@ body{
 
 
 .one {
-	background: 
-	  linear-gradient(27deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), 
-	  linear-gradient(207deg, rgb(21,21,21) 5px, rgba(0,0,0,0) 5px), 
-	  linear-gradient(27deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), 
-	  linear-gradient(207deg, rgb(34,34,34) 5px, rgba(0,0,0,0) 5px), 
-	  linear-gradient(90deg, rgb(27,27,27) 10px, rgba(0,0,0,0) 10px), 
-	  linear-gradient(180deg, rgb(29,29,29) 25%, rgb(26,26,26) 25%, 
-		rgb(26,26,26) 50%, rgba(0,0,0,0) 50%, rgba(0,0,0,0) 75%, 
-		rgb(36,36,36) 75%, rgb(36,36,36) 100%), rgb(19, 19, 19);
-	background-position: 0 5px, 10px 0, 0 10px, 10px 5px, 0 0, 0 0;
-	background-size: 20px 20px;
-	transform-origin: 50% 50% 0;
+	background: black
+
 }
-.two{
-	background-color: #474747;
-}
+
 .nv-abs{
 	z-index: 9999;
 }
 .menu-dp{
-	position: fixed;
-	left: -195%;
+	position: absolute;
+	top: 200%;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
 }
 .auth{
 	position: relative;
-	
-	left: 70%;
-}
-.shop_cart{
-	position: relative;
-	
-	left: 2810%;
+	right: 10%;
 }
 .p-3{
 	position: absolute;
 	z-index: 100;
 }
 .search{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
+    margin-left: auto;
+    margin-right: auto;
     width: 50%;
 	opacity: 0.5;
 
@@ -53,10 +37,6 @@ body{
 	z-index: 1;
 }
 
-.shop_cart{
-  position: relative;
-  right: -550%;
-}
 
 * {box-sizing:border-box}
 
@@ -92,8 +72,8 @@ body{
 	text-decoration: none;
 	color: #474747;
 	height: 495px;
-	border-radius: 3%;  
-    border: 6px solid black; 
+	border-radius: 3%;
+    border: 6px solid black;
 }
 
 .products {
@@ -117,9 +97,9 @@ body{
 	height: 100%;
 	margin: auto;
 	transition: transform .4s ease-out;
-	border-radius: 2.2%;  
-    border: 1px; 
-	
+	border-radius: 2.2%;
+    border: 1px;
+
 }
 
 .product:hover .product-photo img {
@@ -157,7 +137,12 @@ body{
 	box-shadow: 0 0 20px rgba(0, 0, 0, .5);
 	border-radius: 3px;
 }
+.product_title{
+	position: absolute;
+    left: 50%;
+    transform: translate(-50%);
 
+}
 .inform-product{
 	position: absolute;
 	display: none;
@@ -168,29 +153,28 @@ body{
 	opacity: .8;
 	border: 1px;
 	border-radius: 2%;
-	
+
 }
 
 .product:hover .inform-product{
   display:block;
-  
+
 }
+
 
 
 .nav-bar-main{
 	display: block;
 	position: relative;
-	top: -166px;
+	top: -17vh;
+	height: 8vh;
 	border-top: 6px solid black;
 	border-bottom: 6px solid black;
-}
-
-.nav-main-2{
-	font-size: 20px;
-	left: 50%;
-    transform: translate(-175%);
+	background-color: #212529;
 
 }
+
+
 
 #navbar {
     position: fixed; /* Make it stick/fixed */
@@ -199,22 +183,27 @@ body{
     transform: translate(-50%);
 }
 .nav-center{
-	transform: translate(860%);
+	font-size: 20px;
+	position: absolute;
+	top: 3vh;
+	left: 50%;
+	margin-right: -50%;
+	transform: translate(-50%, -50%);
 }
 
 .pullUp{
 	animation-name: pullUp;
-	-webkit-animation-name: pullUp;	
+	-webkit-animation-name: pullUp;
 
-	animation-duration: 0.5s;	
+	animation-duration: 0.5s;
 	-webkit-animation-duration: 0.5s;
 
-	animation-timing-function: ease-out;	
-	-webkit-animation-timing-function: ease-out;	
+	animation-timing-function: ease-out;
+	-webkit-animation-timing-function: ease-out;
 
 	transform-origin: 50% 100%;
 	-ms-transform-origin: 50% 100%;
-	-webkit-transform-origin: 50% 100%; 		
+	-webkit-transform-origin: 50% 100%;
 }
 
 @keyframes pullUp {
@@ -223,22 +212,22 @@ body{
 	}
 	100% {
 		transform: scaleY(1);
-	}							
+	}
 }
 
 @-webkit-keyframes pullUp {
 	0% {
 		-webkit-transform: scaleY(0.1);
-	}	
+	}
 
 	100% {
 		-webkit-transform: scaleY(1);
-	}		
+	}
 }
 
- 
+
  /* Код самой анимации. */
- 
+
  @keyframes move {
 	from {
 	   transform: translateX(0);
@@ -247,7 +236,7 @@ body{
 	   transform: translateX(100px);
 	}
  }
- 
+
  @-moz-keyframes move {
 	from {
 	   -moz-transform: translateX(0);
@@ -256,7 +245,7 @@ body{
 	   -moz-transform: translateX(100px);
 	}
  }
- 
+
  @-webkit-keyframes move {
 	from {
 	   -webkit-transform: translateX(0);
@@ -266,26 +255,7 @@ body{
 	}
  }
 
-@media screen and (max-width:800px) {
-  .search{
-    width: 25%;
-    top: 1.8%;
-    left: 44%;
-}
-.slideshow-container {
-  top: -10vh;
-}
-.auth{
-  position: relative;
-  top: -4px;
-  left: 5%;
-}
-.shop_cart{
-  position: relative;
-  right: -560%;
-  top: -4px;
-}
-}
+
 
 @media only screen and (min-width: 450px) {
 	.product-wrapper {
