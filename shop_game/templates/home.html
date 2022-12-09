@@ -2,39 +2,32 @@
 
 {% block title %}Home{% endblock %}
 {% load static %}
-{% block content %}
-  <div class="slideshow-container">
-      <div class="slider">
-        <div class="slides">
-          <!--radio buttons start-->
-          <input type="radio" name="radio-btn" id="radio1">
-          <input type="radio" name="radio-btn" id="radio2">
-          <input type="radio" name="radio-btn" id="radio3">
-          <input type="radio" name="radio-btn" id="radio4">
-          <!--radio buttons end-->
-          <!--slide images start-->
-          <div class="slide first">
-            <img src="{% static 'svg/fps.jpg' %}" style="width:100%" alt="">
-          </div>
-          <div class="slide">
-            <img src="{% static 'svg/adventure.jpg' %}" style="width:100%" alt="">
-          </div>
-          <div class="slide">
-            <img src="{% static 'svg/strategy.jpg' %}" style="width:100%" alt="">
-          </div>
-          <div class="slide">
-            <img src="{% static 'svg/indi.jpg' %}" style="width:100%" alt="">
-          </div>
 
-          <div class="navigation-auto">
-            <div class="auto-btn1"></div>
-            <div class="auto-btn2"></div>
-            <div class="auto-btn3"></div>
-            <div class="auto-btn4"></div>
-          </div>
-        </div>
+{% block content %}
+<div class="slideshow-container">
+  <div id="carousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="img-fluid" src="{% static 'svg/fps.jpg' %}" alt="..." style="width:100%">
+      </div>
+      <div class="carousel-item">
+        <img class="img-fluid" src="{% static 'images/terraria.jpg' %}" alt="..." style="width:100%">
+      </div>
+      <div class="carousel-item">
+          <img class="img-fluid" src="{% static 'images/darksouls3.jpg' %}" alt="..." style="width:100%">
+      </div>
     </div>
+    <!-- Элементы управления -->
+    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Предыдущий</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Следующий</span>
+    </a>
   </div>
+</div>
   <div class="nav-bar-main">
     <nav class="navbar navbar-expand-sm navbar-dark" aria-label="Third navbar example">
       <div class="container-fluid">
@@ -65,7 +58,7 @@
           </div>
           <div class="inform-product pullUp">
             <p class="price" style="color:white;">{{product.price}}Р</p>
-            <a href="#" class="button-buy btn" style="color:white;" role="button">Купить</a>
+            <a href="{% url 'buy' product.pk %}" class="button-buy btn" style="color:white;" role="button">Купить</a>
             <a href="{% url 'product_detail' product.pk %}" class="button-detail btn" style="color:white;" role="button">О товаре</a>
           </div>
         </div>

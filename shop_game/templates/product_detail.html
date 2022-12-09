@@ -3,13 +3,13 @@
 {% block content %}
 
 
-
     <div class="info_product">
         <div class="info">
             <div class="illustration"><img src="/{{object.cover}}" width="400" height="600" alt=""></div>
             <div class="form-group"> <div class="name-control">{{ object.title }}</div></div>
             <div class="form-group"> <div class="janr-control">{{ object.genre }}</div></div>
             <div class="form-group"> <div class="info-control">{{ object.body }}</div></div>
+            <div class="form-group"> <div class="technical-info-control">{{ object.Technical_desc }}</div></div>
             <div class="form-group"> <div class="price-control">Цена: {{object.price}}Р</div></div>
             <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Купить</button></div>
         </div>

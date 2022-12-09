@@ -45,6 +45,23 @@
     word-break: break-all ;
   }
 
+    .info_product .info .technical-info-control {
+    position: absolute;
+    display: block;
+    left: 40%;
+    width: 670px;
+    margin-top: -320px;
+    background:none;
+    border:none;
+    border-bottom:1px solid #434a52;
+    border-radius:0;
+    box-shadow:none;
+    outline:none;
+    color:inherit;
+    word-break: break-all ;
+  }
+
+
   .info_product .info .name-control {
     position: absolute;
     left: 40%;

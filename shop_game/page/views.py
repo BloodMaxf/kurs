@@ -27,3 +27,7 @@ class SearchResultsView(ListView):
             Q(title__icontains=query) | Q(genre__icontains=query)
         )
         return object_list
+
+class Buy_item(TemplateView):
+    model = models.Product
+    template_name = 'buy_item.html'

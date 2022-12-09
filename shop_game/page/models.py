@@ -25,10 +25,12 @@ class Product(models.Model):
     genre = models.CharField(max_length=30, default="")
     body = models.TextField(default="")
     key = models.CharField(max_length=255)
+    Technical_desc = models.TextField(default="")
 
     def __str__(self):
         return self.title
 
     def get_absolute_url(self):
         return reverse('product_detail', args=[str(self.id)])
+
 
