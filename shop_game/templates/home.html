@@ -37,9 +37,13 @@
               <a href="#" class="nav-link nav-main-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Каталог игр</a>
 
               <div class="dropdown-menu menu-dp" aria-labelledby="userMenu">
-                <a class="dropdown-item pos" href="#">Рпг</a>
+                <button class="dropdown-item pos" data-filter="all" href="#">Сбросить фильтр</button>
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item pos" data-filter="RPG" href="#">Рпг</button>
               <div class="dropdown-divider"></div>
-                <a class="dropdown-item pos" href="#">Шутер</a>
+                <button class="dropdown-item pos" data-filter="SoulsLike" href="#">SoulsLike</button>
+                <div class="dropdown-divider"></div>
+                <button class="dropdown-item pos" data-filter="Adventure" href="#">Adventure</button>
               </div>
             </li>
           </ul>
@@ -51,18 +55,61 @@
 <div>
     <ul class="products clearfix list-games">
       {% for product in object_list %}
-      <li class="product-wrapper">
-        <div href="#" class="product">
-          <div class="product-photo">
-            <img src="{{product.cover}} " alt="{{ product.title }}">
-          </div>
-          <div class="inform-product pullUp">
-            <p class="price" style="color:white;">{{product.price}}Р</p>
-            <a href="{% url 'buy' product.pk %}" class="button-buy btn" style="color:white;" role="button">Купить</a>
-            <a href="{% url 'product_detail' product.pk %}" class="button-detail btn" style="color:white;" role="button">О товаре</a>
-          </div>
-        </div>
-      </li>
+        {% if product.availability %}
+          {% if product.group == "RPG" %}
+            <li class="product-wrapper {{ product.group }}">
+              <div href="#" class="product ">
+                <div class="product-photo">
+                  <img src="{{product.cover}} " alt="{{ product.title }}">
+                </div>
+                <div class="inform-product pullUp">
+                  <p class="price" style="color:white;">{{product.price}}Р</p>
+                  <a href="{% url 'buy_item' product.pk %}" class="button-buy btn" style="color:white;" role="button">Купить</a>
+                  <a href="{% url 'product_detail' product.pk %}" class="button-detail btn" style="color:white;" role="button">О товаре</a>
+                </div>
+              </div>
+            </li>
+          {% elif product.group == "Shooter" %}
+            <li class="product-wrapper {{ product.group }}">
+              <div href="#" class="product">
+                <div class="product-photo">
+                  <img src="{{product.cover}} " alt="{{ product.title }}">
+                </div>
+                <div class="inform-product pullUp">
+                  <p class="price" style="color:white;">{{product.price}}Р</p>
+                  <a href="{% url 'buy_item' product.pk %}" class="button-buy btn" style="color:white;" role="button">Купить</a>
+                  <a href="{% url 'product_detail' product.pk %}" class="button-detail btn" style="color:white;" role="button">О товаре</a>
+                </div>
+              </div>
+            </li>
+          {% elif product.group == "Adventure" %}
+            <li class="product-wrapper {{ product.group }}">
+              <div href="#" class="product">
+                <div class="product-photo">
+                  <img src="{{product.cover}} " alt="{{ product.title }}">
+                </div>
+                <div class="inform-product pullUp">
+                  <p class="price" style="color:white;">{{product.price}}Р</p>
+                  <a href="{% url 'buy_item' product.pk %}" class="button-buy btn" style="color:white;" role="button">Купить</a>
+                  <a href="{% url 'product_detail' product.pk %}" class="button-detail btn" style="color:white;" role="button">О товаре</a>
+                </div>
+              </div>
+            </li>
+          {% elif product.group == "SoulsLike" %}
+            <li class="product-wrapper {{ product.group }}">
+              <div href="#" class="product">
+                <div class="product-photo">
+                  <img src="{{product.cover}} " alt="{{ product.title }}">
+                </div>
+                <div class="inform-product pullUp">
+                  <p class="price" style="color:white;">{{product.price}}Р</p>
+                  <a href="{% url 'buy_item' product.pk %}" class="button-buy btn" style="color:white;" role="button">Купить</a>
+                  <a href="{% url 'product_detail' product.pk %}" class="button-detail btn" style="color:white;" role="button">О товаре</a>
+                </div>
+              </div>
+            </li>
+          {% endif %}
+        {% endif %}
       {% endfor %}
     </ul>
 </div>

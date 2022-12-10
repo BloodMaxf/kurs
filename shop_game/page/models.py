@@ -5,6 +5,7 @@ from django.urls import reverse
 # Create your models here.
 
 class Product(models.Model):
+
     RPG ='RPG'
     Shooter = 'Shooter'
     Adventure = 'Adventure'
@@ -26,6 +27,8 @@ class Product(models.Model):
     body = models.TextField(default="")
     key = models.CharField(max_length=255)
     Technical_desc = models.TextField(default="")
+    availability = models.BooleanField(default=True)
+    group = models.CharField(max_length=20, choices=CHOICE_GROUP, default=RPG)
 
     def __str__(self):
         return self.title

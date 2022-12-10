@@ -1,12 +1,11 @@
 from django.shortcuts import render
-from django.views.generic import ListView, TemplateView, DetailView
-from django.views.generic.edit import UpdateView, DeleteView, CreateView
+from django.views.generic import ListView, DetailView
+from django.views.generic.edit import DeleteView
 from django.urls import reverse_lazy
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
-
 from . import models
-
+from users.models import Personal_area
+from django.contrib.auth.models import User
 
 class HomePageView(ListView):
     model = models.Product
@@ -19,6 +18,7 @@ class ProductDetailView(DetailView):
 
 class SearchResultsView(ListView):
     model = models.Product
+
     template_name = 'search_results.html'
 
     def get_queryset(self):
@@ -28,6 +28,18 @@ class SearchResultsView(ListView):
         )
         return object_list
 
-class Buy_item(TemplateView):
+class Buy_item(DeleteView):
     model = models.Product
+    model1 = Personal_area
+    model2 = User
+
     template_name = 'buy_item.html'
+    success_url = reverse_lazy('home')
+
+    def buy(self):
+        model = models.Product
+        model1 = Personal_area
+        model2 = User
+        model1.title = model.title
+        model1.key = model.key
+        model1.user_id = model2.username

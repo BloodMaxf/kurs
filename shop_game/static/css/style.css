@@ -8,6 +8,7 @@ body{
 
 }
 
+
 .nv-abs{
 	z-index: 9999;
 }
@@ -198,6 +199,10 @@ body{
 	margin-right: -50%;
 	transform: translate(-50%, -50%);
 }
+.hide{
+    display:none;
+}
+
 
 .pullUp{
 	animation-name: pullUp;

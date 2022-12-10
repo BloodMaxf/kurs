@@ -1,14 +1,3 @@
-let counter = 1;
-setInterval(function(){
-  document.getElementById('radio' + counter).checked = true;
-  counter++;
-  if(counter > 4){
-    counter = 1;
-  }
-}, 5000);
-setInterval()
-//Scroll
-
 window.onscroll = function() {scrollFunction()};
 
 function scrollFunction(evt) {
@@ -20,12 +9,27 @@ function scrollFunction(evt) {
 
 
 
-let search = document.querySelector('search-js');
+function app(){
+    const buttons = document.querySelectorAll('.pos')
+    const cards = document.querySelectorAll('.product-wrapper')
 
-search.addEventListener('click', (evt) =>{
-  if (search.onmouseover ){
+    function filter(category,items){
+        items.forEach((item) => {
+            const isItemFiltered = !item.classList.contains(category)
+            if(isItemFiltered){
+                item.classList.add('hide')
+            }
+        })
+    }
 
-  }
-})
+    buttons.forEach((button)=>{
+        button.addEventListener('click',() => {
+            const currentCategory = button.dataset.filter
+            filter(currentCategory,cards)
+            console.log(currentCategory)
+        })
+    })
+}
 
 
+app()
