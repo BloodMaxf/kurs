@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, DeleteView
 from django.views.generic.edit import DeleteView
 from django.urls import reverse_lazy
 from django.db.models import Q
+from django.shortcuts import get_object_or_404
 from . import models
-from users.models import Personal_area
-from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 class HomePageView(ListView):
     model = models.Product
@@ -28,18 +28,13 @@ class SearchResultsView(ListView):
         )
         return object_list
 
-class Buy_item(DeleteView):
+class Buy_item(LoginRequiredMixin, DeleteView):
     model = models.Product
-    model1 = Personal_area
-    model2 = User
-
     template_name = 'buy_item.html'
     success_url = reverse_lazy('home')
-
-    def buy(self):
+    login_url = 'login'
+    def index1(request, pk):
         model = models.Product
-        model1 = Personal_area
-        model2 = User
-        model1.title = model.title
-        model1.key = model.key
-        model1.user_id = model2.username
+        users = model.objects.filter(user=request.user.id).all()
+        return render(request, "personal_area.html", {"users": users})
+

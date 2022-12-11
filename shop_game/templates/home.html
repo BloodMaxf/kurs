@@ -34,12 +34,12 @@
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav me-auto mb-2 mb-sm-0">
             <li class="nav-item nav-center nv-abs">
-              <a href="#" class="nav-link nav-main-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Каталог игр</a>
+              <a href="#" class="nav-link nav-main-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Категории игр</a>
 
               <div class="dropdown-menu menu-dp" aria-labelledby="userMenu">
                 <button class="dropdown-item pos" data-filter="all" href="#">Сбросить фильтр</button>
                 <div class="dropdown-divider"></div>
-                <button class="dropdown-item pos" data-filter="RPG" href="#">Рпг</button>
+                <button class="dropdown-item pos" data-filter="RPG" href="#">RPG</button>
               <div class="dropdown-divider"></div>
                 <button class="dropdown-item pos" data-filter="SoulsLike" href="#">SoulsLike</button>
                 <div class="dropdown-divider"></div>
@@ -96,6 +96,19 @@
               </div>
             </li>
           {% elif product.group == "SoulsLike" %}
+            <li class="product-wrapper {{ product.group }}">
+              <div href="#" class="product">
+                <div class="product-photo">
+                  <img src="{{product.cover}} " alt="{{ product.title }}">
+                </div>
+                <div class="inform-product pullUp">
+                  <p class="price" style="color:white;">{{product.price}}Р</p>
+                  <a href="{% url 'buy_item' product.pk %}" class="button-buy btn" style="color:white;" role="button">Купить</a>
+                  <a href="{% url 'product_detail' product.pk %}" class="button-detail btn" style="color:white;" role="button">О товаре</a>
+                </div>
+              </div>
+            </li>
+            {% elif product.group == "Horror" %}
             <li class="product-wrapper {{ product.group }}">
               <div href="#" class="product">
                 <div class="product-photo">

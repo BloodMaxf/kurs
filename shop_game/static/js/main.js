@@ -16,8 +16,11 @@ function app(){
     function filter(category,items){
         items.forEach((item) => {
             const isItemFiltered = !item.classList.contains(category)
-            if(isItemFiltered){
+            const isShowAll = category.toLowerCase() === 'all'
+            if(isItemFiltered && !isShowAll){
                 item.classList.add('hide')
+            }else{
+                item.classList.remove('hide')
             }
         })
     }

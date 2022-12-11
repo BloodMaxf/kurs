@@ -8,7 +8,10 @@ body{
 
 }
 
-
+.user_main{
+    position:relative;
+    left: -12vh;
+}
 .nv-abs{
 	z-index: 9999;
 }
@@ -21,7 +24,7 @@ body{
 }
 .auth{
 	position: relative;
-	right: 0%;
+	right: 9%;
 }
 .p-3{
 	position: absolute;
@@ -30,14 +33,17 @@ body{
 .search{
     margin-left: auto;
     margin-right: auto;
-    width: 65%;
-	opacity: 0.5;
+    width: 50%;
+	opacity: 0.8;
 
 }
 .dropdown-item{
 	z-index: 1;
 }
-
+.svg-logo{
+    position:relative;
+    left: 12vh;
+}
 
 * {box-sizing:border-box}
 
