@@ -10,11 +10,11 @@
         <div class="form-group"> <div class="name-control">ЛИЧНЫЙ КАБИНЕТ</div></div>
         <div class="form-group">
           <ul class="info-control-2">
-              {% for personal_area in user.personal_area_set.all %}
+              {% for purchased_products in user.purchased_products_set.all %}
 
                     <li class="info-item">
                       <div>
-                          {{ personal_area.title }} <i style="margin-left: 400px;">Ключ: {{ personal_area.key}} </i>
+                          {{ purchased_products.title }} <i style="margin-left: 400px;">Ключ: {{ purchased_products.key}} </i>
                       </div>
                     </li>
 

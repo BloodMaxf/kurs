@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% load static %}
-{% block title %}Login{% endblock %}
+
 
 
 {% block content %}
@@ -9,12 +9,15 @@
     <form method="post" action="">
         {% csrf_token %}
         <div class="illustration">Заполните данные</div>
-        <div class="form-group"><input class="form-control" type="text" name="card_number" placeholder="{{ object.title }}" readonly></div>
-        <div class="form-group"><input class="form-control" type="text" name="card_number" placeholder="{{ object.key }}" readonly></div>
+        {% if user.is_authenticated %}
+        <div class="form-group"><input class="form-control" type="text" name="title" placeholder="{{object.title}}"  value="{{object.title}" readonly></div>
+        <div class="form-group"><input class="form-control" type="text" name="key" placeholder="{{object.key}}" value="{{object.key}}" readonly></div>
+        <div class="form-group"><input class="form-control" type="text" name="user_id" placeholder="{{user.username}}" value="{{user.username}}" readonly></div>
+        {% endif %}
         <div class="form-group"><input class="form-control" type="text" name="card_number" placeholder="Номер карты" autofocus ></div>
         <div class="form-group"><input class="form-control" type="text" name="card_date" placeholder="Дата"> </div>
         <div class="form-group"><input class="form-control" type="text" name="card_cvc" placeholder="CVC"> </div>
-        <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Купить</button></div><i class="forgot">*примерная покупка товара</i>
+        <div class="form-group"><a class="btn btn-primary btn-block" type="submit">Купить</a></div><i class="forgot">*примерная покупка товара</i>
     </form>
 </div>
 {% endblock %}
