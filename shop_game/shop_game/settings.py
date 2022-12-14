@@ -134,3 +134,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 TIME_ZONE = 'Asia/Yekaterinburg'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+AUTH_USER_EMAIL_UNIQUE = True

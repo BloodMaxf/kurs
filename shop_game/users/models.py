@@ -9,3 +9,7 @@ class Personal_area(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.CASCADE, default='')
     def __str__(self):
         return str(self.user_id)
+
+
+
+User._meta.get_field('email')._unique = True

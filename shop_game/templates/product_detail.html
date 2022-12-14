@@ -11,7 +11,7 @@
             <div class="form-group"> <div class="info-control">{{ object.body }}</div></div>
             <div class="form-group"> <div class="technical-info-control">{{ object.Technical_desc }}</div></div>
             <div class="form-group"> <div class="price-control">Цена: {{object.price}}Р</div></div>
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Купить</button></div>
+            <div class="form-group"><a href="{% url 'buy_item' product.pk %}" class="btn btn-primary btn-block" type="submit">Купить</a></div>
             {% if user.is_superuser %}
             <div class="form-group"><a href="{% url 'GameEdit' object.pk %}" class="btn btn-primary btn-block edit_button" type="submit">Изменить информацию</a></div>
             <div class="form-group"><a href="{% url 'DeleteGame' object.pk %}" class="btn btn-primary btn-block delete_button" type="submit">Удалить</a></div>

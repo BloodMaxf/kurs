@@ -12,13 +12,15 @@ class Product(models.Model):
     Adventure = 'Adventure'
     SoulsLike = 'SoulsLike'
     Horror = 'Horror'
+    Roguelike = 'Roguelike'
 
     CHOICE_GROUP = {
         (RPG, 'RPG'),
         (Shooter, 'Shooter'),
         (Adventure, "Adventure"),
         (SoulsLike, 'SoulsLike'),
-        (Horror, 'Horror')
+        (Horror, 'Horror'),
+        (Roguelike,'Roguelike')
     }
 
     title = models.CharField(max_length=255)
@@ -40,7 +42,7 @@ class Purchased_products(models.Model):
 
     title = models.CharField(max_length=255)
     key = models.CharField(max_length=255)
-    user_id = models.ForeignKey(User, on_delete=models.CASCADE, default='')
+    user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='')
     def __str__(self):
         return str(self.title)
 

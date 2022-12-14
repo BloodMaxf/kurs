@@ -7,6 +7,7 @@
 <div class="slideshow-container">
   <div id="carousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
+
       <div class="carousel-item active">
         <img class="img-fluid" src="{% static 'svg/fps.jpg' %}" alt="..." style="width:100%">
       </div>
@@ -124,14 +125,28 @@
                 </div>
               </div>
             </li>
+            {% elif product.group == "Roguelike" %}
+            <li class="product-wrapper {{ product.group }}">
+              <div href="#" class="product">
+                <div class="product-photo">
+                  <img src="{{product.cover}} " alt="{{ product.title }}">
+                </div>
+                <div class="inform-product pullUp">
+                  <p class="price" style="color:white;">{{product.price}}Р</p>
+                  <a href="{% url 'buy_item' product.pk %}" class="button-buy btn" style="color:white;" role="button">Купить</a>
+                  <a href="{% url 'product_detail' product.pk %}" class="button-detail btn" style="color:white;" role="button">О товаре</a>
+                </div>
+              </div>
+            </li>
           {% endif %}
       {% endfor %}
-    </ul>
 
+    </ul>
+        {% if user.is_superuser %}
+        <div class="form-group"><a href="{% url 'Add_game' %}" class="btn btn-block add_game" type="submit" style="width: 10%;">Добавить товар</a></div>
+        {% endif %}
 </div>
-{% if user.is_superuser %}
-<div class="form-group"><a href="{% url 'Add_game' %}" class="btn btn-block add_game" type="submit" style="width: 10%;">Добавить товар</a></div>
-{% endif %}
+
 <ul class="pagination">
     {% if page_obj.has_previous %}
         {% if page_obj.number|add:'-3' > 1 %}
