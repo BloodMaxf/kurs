@@ -40,8 +40,8 @@ class Product(models.Model):
 
 class Purchased_products(models.Model):
 
-    title = models.CharField(max_length=255)
-    key = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, default='')
+    key = models.CharField(max_length=255, default='')
     user_id = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='')
     def __str__(self):
         return str(self.title)

@@ -12,7 +12,7 @@ function scrollFunction(evt) {
 function app(){
     const buttons = document.querySelectorAll('.pos')
     const cards = document.querySelectorAll('.product-wrapper')
-
+    const fieldName = document.querySelector('.nav-main-2')
     function filter(category,items){
         items.forEach((item) => {
             const isItemFiltered = !item.classList.contains(category)
@@ -29,7 +29,12 @@ function app(){
         button.addEventListener('click',() => {
             const currentCategory = button.dataset.filter
             filter(currentCategory,cards)
-            console.log(currentCategory)
+            if(currentCategory == 'all'){
+                fieldName.innerHTML = 'Категории игр'
+            }else{
+                fieldName.innerHTML = `Категория:${currentCategory}`
+            }
+
         })
     })
 }
