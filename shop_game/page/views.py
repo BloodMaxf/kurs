@@ -24,11 +24,13 @@ class SearchResultsView(ListView):
     model = models.Product
 
     template_name = 'search_results.html'
+    paginate_by = 8
 
     def get_queryset(self):
         query = self.request.GET.get('q')
         object_list = models.Product.objects.filter(
             Q(title__icontains=query) | Q(group__icontains=query)
+
         )
         return object_list
 
